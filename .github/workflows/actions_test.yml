@@ -16,3 +16,13 @@ jobs:
         
       - name: Create zip-package
         run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+
+      - name: Connect to server
+        uses: Tofandel/ssh-server-action@v1.0.0
+        with:
+          hostname      : ${{ secrets.HOSTNAME }}
+          user_name     : ${{ secrets.LOGIN }}
+          user_password : ${{ secrets.PASSWORD }}
+
+
+
