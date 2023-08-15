@@ -1,24 +1,18 @@
-name: ACTIONS_TEST
+name: CI_CD
+
+env:
+DEPLOY_PACKAGE_NAME : "crm.zip"
 
 on:
   push:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 jobs:
-  build:
+  ci_part:
     runs-on: ubuntu-latest
-
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      - name: Run a one-line script
-        run: ls 
-
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Git clone this repo
+        uses: action/checkout@v1
+        
+      - name: Create zip-package
+        run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
