@@ -11,9 +11,6 @@ jobs:
   ci_part:
     runs-on: ubuntu-latest
     steps:
-      - name: Git clone this repo
-        uses: action/checkout@v3.5.3
-        
       - name: Create zip-package
         run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
 
