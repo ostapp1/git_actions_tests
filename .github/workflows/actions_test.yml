@@ -1,7 +1,7 @@
 name: CI_CD
 
 env:
-DEPLOY_PACKAGE_NAME : "crm.zip"
+  DEPLOY_PACKAGE_NAME : "crm.zip"
 
 on:
   push:
