@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get our repo
-        run : actions/checkout@v1
+        uses : actions/checkout@v1
         
       - name: Create zip-package
         run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
