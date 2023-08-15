@@ -18,11 +18,11 @@ jobs:
         run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
 
       - name: Connect to server
-        uses: Tofandel/ssh-server-action@v1.0.0
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.40
         with:
-          hostname      : ${{ secrets.HOSTNAME }}
-          user_name     : ${{ secrets.LOGIN }}
-          user_password : ${{ secrets.PASSWORD }}
+          host : ${{ secrets.HOSTNAME }}
+          user : ${{ secrets.LOGIN }}
+          pass : ${{ secrets.PASSWORD }}
 
 
 
