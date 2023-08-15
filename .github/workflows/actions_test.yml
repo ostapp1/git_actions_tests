@@ -18,7 +18,7 @@ jobs:
         run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
 
       - name: Connect to server
-        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.40
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
         with:
           host : ${{ secrets.HOSTNAME }}
           user : ${{ secrets.LOGIN }}
