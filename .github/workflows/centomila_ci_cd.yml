@@ -24,5 +24,10 @@ jobs:
           host : ${{ secrets.HOSTNAME }}
           user : ${{ secrets.LOGIN }}
           pass : ${{ secrets.PASSWORD }}
+          scp :
+            'crm.zip' => ~/web/gittest
+          last_ssh: |
+            echo $LASTSSH 
+            ls -la
 
 
