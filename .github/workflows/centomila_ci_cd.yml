@@ -16,13 +16,13 @@ jobs:
         
       - name: Create zip-package
         run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
-
+      - name: Show files
+        run : ls -la
       - name: Connect to server
         uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
         with:
           host : ${{ secrets.HOSTNAME }}
           user : ${{ secrets.LOGIN }}
           pass : ${{ secrets.PASSWORD }}
-
 
 
