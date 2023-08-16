@@ -25,7 +25,7 @@ jobs:
           user : ${{ secrets.LOGIN }}
           pass : ${{ secrets.PASSWORD }}
           scp :
-            "." => "/home/web/gittest/"
+            ./ => "/home/web/gittest/"
           last_ssh: |
             echo $LASTSSH 
             ls -la
