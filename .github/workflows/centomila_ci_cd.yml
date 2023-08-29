@@ -1,7 +1,7 @@
 name: CI_CD
 
-env:
-  DEPLOY_PACKAGE_NAME : "crm.zip"
+#env:
+#  DEPLOY_PACKAGE_NAME : "crm.zip"
 
 on:
   push:
@@ -14,10 +14,12 @@ jobs:
       - name: Get our repo
         uses : actions/checkout@v1
         
-      - name: Create zip-package
-        run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+      #- name: Create zip-package
+      #  run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+      
       - name: Show files
         run : ls -la
+      
       - name: Connect to server
         uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
         with:
