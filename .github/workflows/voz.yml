@@ -1,0 +1,31 @@
+name: CI_CD
+
+#env:
+#  DEPLOY_PACKAGE_NAME : "crm.zip"
+
+on: [workflow_dispatch]
+
+jobs:
+  ci_part:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get our repo
+        uses : actions/checkout@v1
+        
+      #- name: Create zip-package
+      #  run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+        
+      - name: Show files
+        run : ls -la
+        
+      - name: Connect to server
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+        with:
+          host : ${{ secrets.HOSTNAME }}
+          user : ${{ secrets.LOGIN }}
+          pass : ${{ secrets.PASSWORD }}
+          scp :
+            ./ => "~/web/CI_CD/"
+          last_ssh: |
+            echo $LASTSSH 
+            ls -la
