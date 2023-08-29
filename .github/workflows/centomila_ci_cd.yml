@@ -30,6 +30,6 @@ jobs:
             ./ => "~/web/gittest/"
           last_ssh: |
             echo $LASTSSH 
-            ls -la
+            ls
 
 
